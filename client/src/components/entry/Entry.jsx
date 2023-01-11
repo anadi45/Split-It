@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Navbar from '../navbar/Navbar';
-// import "./entry.css";
 import axios from 'axios';
 import {useCookies} from "react-cookie";
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +24,7 @@ const Entry = () => {
 		};
         axios
 			.post(
-				"/signup",
+				"https://ranjeetbaraik-split-it.onrender.com/signup",
 				{
 					name: e.target[0].value,
                     email: e.target[1].value,
@@ -57,7 +56,7 @@ const Entry = () => {
 			}
 		};
         axios
-			.post("/login",
+			.post("https://ranjeetbaraik-split-it.onrender.com/login",
 				{
                     email: e.target[0].value,
                     password: e.target[1].value

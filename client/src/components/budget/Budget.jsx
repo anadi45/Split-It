@@ -24,7 +24,7 @@ const Budget = () => {
 
       useEffect(()=>{
         axios
-            .get("/currentUser",
+            .get("https://ranjeetbaraik-split-it.onrender.com/currentUser",
             config
                 )
             .then((res) => {
@@ -47,7 +47,7 @@ const Budget = () => {
     const handleUpdate = () => {
         
         axios
-            .patch(`/updateBudget`,
+            .patch(`https://ranjeetbaraik-split-it.onrender.com/updateBudget`,
                 {
                 budget: parseInt(num)
                 },

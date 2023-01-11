@@ -20,7 +20,7 @@ const All = () => {
 
     useEffect(()=>{
         axios
-            .get("/allTransactions",
+            .get("https://ranjeetbaraik-split-it.onrender.com/allTransactions",
             config
                 )
             .then((res) => {

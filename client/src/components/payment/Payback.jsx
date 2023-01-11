@@ -20,7 +20,7 @@ const Payback = () => {
 
     useEffect(()=>{
         axios
-            .get("/pendingPayments",
+            .get("https://ranjeetbaraik-split-it.onrender.com/pendingPayments",
             config
                 )
             .then((res) => {
@@ -39,7 +39,7 @@ const Payback = () => {
     const handlePay = (amount,_id) => {
 
         axios
-            .post(`/payback/${_id}`,
+            .post(`https://ranjeetbaraik-split-it.onrender.com/payback/${_id}`,
                 {
                 amount: parseInt(amount)
                 },

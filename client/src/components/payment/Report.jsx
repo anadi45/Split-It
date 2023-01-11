@@ -18,7 +18,7 @@ const Report = () => {
 
     useEffect(()=>{
         axios
-        .get("/owe",
+        .get("https://ranjeetbaraik-split-it.onrender.com/owe",
         config
             )
         .then((res) => {

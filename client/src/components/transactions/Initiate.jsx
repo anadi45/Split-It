@@ -22,7 +22,7 @@ const Initiate = () => {
 
   useEffect(()=>{
     axios
-      .get("/allFriends",
+      .get("https://ranjeetbaraik-split-it.onrender.com/allFriends",
         config
           )
       .then((res) => {
@@ -32,7 +32,7 @@ const Initiate = () => {
 
   useEffect(()=>{
     axios
-      .post("/names",
+      .post("https://ranjeetbaraik-split-it.onrender.com/names",
           {
               emails: ids
           },
@@ -58,7 +58,7 @@ const Initiate = () => {
     e.preventDefault();
 
     axios
-      .post("/initiateTransaction",
+      .post("https://ranjeetbaraik-split-it.onrender.com/initiateTransaction",
         {
           title: e.target[0].value,
           totalAmount: parseInt(e.target[1].value),

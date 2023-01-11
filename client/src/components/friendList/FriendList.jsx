@@ -22,7 +22,7 @@ const FriendList = () => {
 		};
 
         axios
-			.get("/allFriends",
+			.get("https://ranjeetbaraik-split-it.onrender.com/allFriends",
 				config
                 )
             .then((res) => {
@@ -38,7 +38,7 @@ const FriendList = () => {
 			}
 		};
         axios
-        .post("/names",
+        .post("https://ranjeetbaraik-split-it.onrender.com/names",
             {
                 emails: ids
             },
@@ -60,7 +60,7 @@ const FriendList = () => {
 			}
 		};
         axios
-			.post("/addFriend",
+			.post("https://ranjeetbaraik-split-it.onrender.com/addFriend",
 				{
 					email: e.target[0].value
 				},
