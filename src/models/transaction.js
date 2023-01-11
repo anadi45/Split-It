@@ -31,7 +31,8 @@ const transactionSchema = new mongoose.Schema({
         type: String
     },
     recovered: {
-        type: Number
+        type: Number,
+        default: 0
     }
 });
 
