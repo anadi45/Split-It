@@ -69,26 +69,39 @@ const Payback = () => {
         textAlign: "center"
     }
 
+    const divStyle = {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px"
+    }
+
+    const buttonStyle = {
+        background: "gray",
+        margin: "30px"
+    }
+
   return (
     <div>
         <Navbar/>
         {warning && <p style={warningStyle}>{message}</p>}
-        <h4>Pending Payments</h4>
-                {
-                    payments.map((trans,idx)=>{
-                        return (
-                            <div key={idx}>
-                                <div>{idx+1}</div>
-                                <div>{trans.title}</div>
-                                <div>{(trans.totalAmount-trans.share)/(trans.splitList).length}</div>
-                                <div>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
-                                <button className='btn btn-primary' onClick={()=>{
-                                    handlePay((trans.totalAmount-trans.share)/(trans.splitList).length,trans._id)
-                                }}>Pay Back</button>
-                            </div>
-                        )
-                    })
-                }
+        <div style={divStyle}>
+            <h3>Pending Payments</h3>
+                    {
+                        payments.map((trans,idx)=>{
+                            return (
+                                <div key={idx} className='card' style={{margin: "20px"}}>
+                                    <div style={divStyle}><b>S No. </b>{idx+1}</div>
+                                    <div style={divStyle}><b>Title - </b>{trans.title}</div>
+                                    <div style={divStyle}><b>Amount - </b>{(trans.totalAmount-trans.share)/(trans.splitList).length}</div>
+                                    <div style={divStyle}><b>Transaction Date - </b>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
+                                    <button style={buttonStyle} className='btn' onClick={()=>{
+                                        handlePay((trans.totalAmount-trans.share)/(trans.splitList).length,trans._id)
+                                    }}>Pay Back</button>
+                                </div>
+                            )
+                        })
+                    }
+        </div>
     </div>
   )
 }

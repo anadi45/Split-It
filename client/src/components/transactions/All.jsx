@@ -41,21 +41,27 @@ const All = () => {
         textAlign: "center"
     }
 
+    const divStyle = {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px"
+    }
+
     return (
         <div>
             <Navbar/>
             {warning && <p style={warningStyle}>{message}</p>}
-            <div>
-                <h4>All Transactions</h4>
+            <div style={divStyle}>
+                <h3>All Transactions</h3>
                 {
                     transactions.map((trans,idx)=>{
                         return (
-                            <div key={idx}>
-                                <div>{idx+1}</div>
-                                <div>{trans.title}</div>
-                                <div>{trans.totalAmount}</div>
-                                <div>{trans.recoverd}</div>
-                                <div>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
+                            <div key={idx}  className='card' style={{margin: "20px"}}>
+                                <div style={divStyle}><b>S No. </b>{idx+1}</div>
+                                <div style={divStyle}><b>Title - </b>{trans.title}</div>
+                                <div style={divStyle}><b>Total Amount - </b>{trans.totalAmount}</div>
+                                <div style={divStyle}><b>Total Recovered - </b>{trans.recoverd}</div>
+                                <div style={divStyle}><b>Transaction Date - </b>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
                             </div>
                         )
                     })

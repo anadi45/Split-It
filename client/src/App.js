@@ -15,12 +15,12 @@ function App() {
       <Navbar />
       {cookies.token === undefined && <Navigate to="/entry" replace={true} />}
       <div style={divStyle}>
-        <div className='card' style={cardStyle}><Link to="/friendList" style={linkStyle}>Friend List</Link></div>
-        <div className='card' style={cardStyle}><Link to="/payback" style={linkStyle}>Pay Back</Link></div>
-        <div className='card' style={cardStyle}><Link to="/initiateTransaction" style={linkStyle}>Initiate Transaction</Link></div>
-        <div className='card' style={cardStyle}><Link to="/allTransactions" style={linkStyle}>All Transactions</Link></div>
-        <div className='card' style={cardStyle}><Link to="/paymentReport" style={linkStyle}>Payment Report</Link></div>
-        <div className='card' style={cardStyle}><Link to="/budget" style={linkStyle}>Budget Report</Link></div>
+        <Link to="/friendList" style={linkStyle}><div className='card' style={cardStyle}>Friend List</div></Link>
+        <Link to="/payback" style={linkStyle}><div className='card' style={cardStyle}>Pay Back</div></Link>
+        <Link to="/initiateTransaction" style={linkStyle}><div className='card' style={cardStyle}>Initiate Transaction</div></Link>
+        <Link to="/allTransactions" style={linkStyle}><div className='card' style={cardStyle}>All Transactions</div></Link>
+        <Link to="/paymentReport" style={linkStyle}><div className='card' style={cardStyle}>Payment Report</div></Link>
+        <Link to="/budget" style={linkStyle}><div className='card' style={cardStyle}>Budget Report</div></Link>
       </div>
     </div>
   );

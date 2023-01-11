@@ -97,39 +97,62 @@ const Initiate = () => {
       textAlign: "center"
   }
 
+  const divStyle = {
+    width: "50%",
+    margin: "auto",
+    marginTop: "20px"
+  }
+
+  const buttonStyle = {
+    background: "gray",
+    margin: "30px"
+  }
+
   return (
   
     <div>
       <Navbar/>
       {notification && <p style={notificationStyle}>{message}</p>}
       {warning && <p style={warningStyle}>{message}</p>}
-        Initiate New Transaction
+      <div style={divStyle}>
+        <h3>Initiate New Transaction</h3>
         <form onSubmit={initiateTransaction}>
+          <div>
             <label>Title</label>
-            <input type="text" name='title'/>
+            <input type="text" name='title' className='form-control'/>
             <label>Amount</label>
-            <input type="number" name="amount"/>
+            <input type="number" name="amount" className='form-control'/>
+          </div>
+          <div>
             <label>Spending Category</label>
-            <select name="spendingType">
+            <select name="spendingType" className='form-control'>
               <option>Entertainment</option>
               <option>Sports</option>
               <option>Education</option>
               <option>Others</option>
             </select>
+          </div>
+          <div>
             <label>Split List (Use Ctrl to select multiple memmbers)</label>
-            <select name="splitList" multiple onChange={handleChange}>
+            <select name="splitList" multiple onChange={handleChange} className="form-control">
               {friends.length>0 && friends.map((name,idx)=>{
                 return (
                   <option value={ids[idx]}>{name}</option>
-                )
-              })}
+                  )
+                })}
             </select>
+          </div>
+          <div>
             <label>Your Share</label>
-            <input type='number' name="share"/>
-          <button type="submit">
-            Initiate Transaction
-          </button>
+            <input type='number' name="share" className="form-control"/>
+          </div>
+          <div style={divStyle  && {textAlign:"center"}}>
+            <button type="submit" className='btn' style={buttonStyle}>
+              Initiate Transaction
+            </button>
+          </div>
         </form>
+      </div>
     </div>
   )
 }

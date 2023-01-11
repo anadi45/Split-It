@@ -87,29 +87,44 @@ const Entry = () => {
         textAlign: "center"
     }
 
+    const divStyle = {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px"
+    }
+
+    const buttonStyle = {
+        background: "gray",
+        margin: "30px"
+    }
+
     return (
         <>
             <Navbar/>
             {notification && <p style={notificationStyle}>{message}</p>}
             {warning && <p style={warningStyle}>{message}</p>}
-            <div>
+            <div style={divStyle}>
                 <div className="main">  	
                     <div className="signup">
-                        <form onSubmit={signUp}>
+                        <form onSubmit={signUp} className='form-group'>
                             <label htmlFor="chk" aria-hidden="true">Sign up</label>
-                            <input type="text" name="name" placeholder="Full Name"/>
-                            <input type="email" name="email" placeholder="Email"/>
-                            <input type="password" name="password" placeholder="Password"/>
-                            <button>Sign up</button>
+                            <input autoComplete="off" type="text" name="name" placeholder="Full Name" className='form-control' style={{margin: "10px"}}/>
+                            <input autoComplete="off" type="email" name="email" placeholder="Email" className='form-control' style={{margin: "10px"}}/>
+                            <input type="password" name="password" placeholder="Password" className='form-control' style={{margin: "10px"}}/>
+                            <div style={divStyle && {textAlign: "center"}}>
+                                <button style={buttonStyle} className='btn'>Sign up</button>
+                            </div>
                         </form>
                     </div>
 
                     <div className="login">
-                        <form onSubmit={logIn}>
+                        <form onSubmit={logIn} className='form-group'>
                             <label htmlFor="chk" aria-hidden="true">Login</label>
-                            <input type="email" name="email" placeholder="Email"/>
-                            <input type="password" name="password" placeholder="Password"/>
-                            <button>Login</button>
+                            <input autoComplete="off" type="email" name="email" placeholder="Email" className='form-control' style={{margin: "10px"}}/>
+                            <input type="password" name="password" placeholder="Password" className='form-control' style={{margin: "10px"}}/>
+                            <div style={divStyle && {textAlign: "center"}}>
+                                <button style={buttonStyle} className='btn'>Login</button>
+                            </div>
                         </form>
                     </div>
                 </div>

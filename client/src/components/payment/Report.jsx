@@ -30,13 +30,26 @@ const Report = () => {
                 setYow(res.data.youOwe);
             }
         })
-    },[])
+    },[]);
+
+    const divStyle = {
+      width: "50%",
+      margin: "auto",
+      marginTop: "20px"
+  }
+
   return (
     <div>
         <Navbar/>
-        <h1>Payment Report</h1>
-        <div>Others owe you - {woy}</div>
-        <div>You owe others - {yow}</div>
+        <div style={divStyle}>
+          <h3>Payment Report</h3>
+          <div>
+            <b>Others owe you - </b>{woy}
+          </div>
+          <div>
+            <b>You owe others - </b>{yow}
+          </div>
+        </div>
     </div>
   )
 }
