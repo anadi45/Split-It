@@ -57,8 +57,7 @@ const Entry = () => {
 			}
 		};
         axios
-			.post(
-				"http://localhost:5000/login",
+			.post("/login",
 				{
                     email: e.target[0].value,
                     password: e.target[1].value

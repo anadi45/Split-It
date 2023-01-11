@@ -1,16 +1,10 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import {useCookies} from "react-cookie";
-import { useEffect } from 'react';
 import { Navigate,Link } from 'react-router-dom';
 
 function App() {
   const [cookies, setCookies] = useCookies(["token"]);
-
-  useEffect(()=>{
-    
-    // console.log(cookies.token)
-  },[])
 
   return (
     <div className="App">
