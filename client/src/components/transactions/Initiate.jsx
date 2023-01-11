@@ -87,12 +87,22 @@ const Initiate = () => {
     
   }
 
+  const warningStyle = {
+    background: "#d76565",
+    textAlign: "center"
+  }
+
+  const notificationStyle = {
+      background: "#71de68e6",
+      textAlign: "center"
+  }
+
   return (
   
     <div>
       <Navbar/>
-      {notification && <p style={{background: "green"}}>{message}</p>}
-      {warning && <p style={{background: "red"}}>{message}</p>}
+      {notification && <p style={notificationStyle}>{message}</p>}
+      {warning && <p style={warningStyle}>{message}</p>}
         Initiate New Transaction
         <form onSubmit={initiateTransaction}>
             <label>Title</label>

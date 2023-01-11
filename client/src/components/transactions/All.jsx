@@ -36,10 +36,15 @@ const All = () => {
             })
     },[])
 
+    const warningStyle = {
+        background: "#d76565",
+        textAlign: "center"
+    }
+
     return (
         <div>
             <Navbar/>
-            {warning && <p style={{background: "red"}}>{message}</p>}
+            {warning && <p style={warningStyle}>{message}</p>}
             <div>
                 <h4>All Transactions</h4>
                 {

@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react';
 import {useCookies} from "react-cookie";
 import axios from 'axios';
 import Navbar from '../navbar/Navbar';
+import e from 'cors';
 
 const Budget = () => {
 
@@ -44,16 +45,17 @@ const Budget = () => {
         setNum(e.target.value);
     }
 
-    const handleUpdate = () => {
-        
+    const handleUpdate = (e) => {
+        e.preventDefault()
         axios
             .patch(`https://ranjeetbaraik-split-it.onrender.com/updateBudget`,
                 {
-                budget: parseInt(num)
+                    budget: parseInt(num)
                 },
                 config
                 )
                 .then((res) => {
+                    console.log(res.data)
                 setMessage(res.data);
                 setNotification(true);
                 const timer = setTimeout(() => {
@@ -61,26 +63,62 @@ const Budget = () => {
                 }, 2000);
                 return () => clearTimeout(timer);
                 })
-        
-                window.location.reload()
+                .catch((err)=> {
+                    setWarning(true);
+                    setMessage(err.response.data);
+                    const timer = setTimeout(() => {
+                        setWarning(false);
+                    }, 2000);
+                    return () => clearTimeout(timer);
+                })
+    }
+
+    const divStyle = {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px"
+    }
+
+    const warningStyle = {
+        background: "#d76565",
+        textAlign: "center"
+    }
+
+    const notificationStyle = {
+        background: "#71de68e6",
+        textAlign: "center"
+    }
+
+    const buttonStyle = {
+        background: "gray",
+        margin: "30px"
     }
 
   return (
-    <div>
-        <Navbar/>
-        {notification && <p style={{background: "green"}}>{message}</p>}
-        {warning && <p style={{background: "red"}}>{message}</p>}
-        <h1>Budget Report</h1>
-        <div>Budget - {budget}</div>
-        <div>Total Spendings - {totalSpendings}</div>
+    <>
+        <div>
+            <Navbar/>
+            {notification && <p style={notificationStyle}>{message}</p>}
+            {warning && <p style={warningStyle}>{message}</p>}
+            <div style={divStyle}>
+                <h3>Budget Report</h3>
+                <div>
+                    <b>Total Spendings - </b>{totalSpendings}
+                </div>
+                <div>
+                    <b>Budget - </b>{budget}
+                </div>
 
-        <div></div>
-        <form onSubmit={handleUpdate}>
-            <label>Update Budget</label>
-            <input type="number" onChange={handleChange}/>
-            <button>Update</button>
-        </form>
-    </div>
+                <form onSubmit={handleUpdate} className='form-group' style={{marginTop: "40px"}}>
+                    <label>Update Budget</label>
+                    <input type="number" onChange={handleChange} className='form-control'/>
+                    <div style={divStyle && {textAlign: "center"}}>
+                        <button className='btn' style={buttonStyle}>Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </>
   )
 }
 

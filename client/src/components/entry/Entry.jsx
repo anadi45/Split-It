@@ -77,11 +77,21 @@ const Entry = () => {
             })
     }
 
+    const warningStyle = {
+        background: "#d76565",
+        textAlign: "center"
+    }
+
+    const notificationStyle = {
+        background: "#71de68e6",
+        textAlign: "center"
+    }
+
     return (
         <>
             <Navbar/>
-            {notification && <p style={{background: "green"}}>{message}</p>}
-            {warning && <p style={{background: "red"}}>{message}</p>}
+            {notification && <p style={notificationStyle}>{message}</p>}
+            {warning && <p style={warningStyle}>{message}</p>}
             <div>
                 <div className="main">  	
                     <div className="signup">

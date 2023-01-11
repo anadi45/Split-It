@@ -64,10 +64,15 @@ const Payback = () => {
         window.location.reload();
     }
 
+    const warningStyle = {
+        background: "#d76565",
+        textAlign: "center"
+    }
+
   return (
     <div>
         <Navbar/>
-        {warning && <p style={{background: "red"}}>{message}</p>}
+        {warning && <p style={warningStyle}>{message}</p>}
         <h4>Pending Payments</h4>
                 {
                     payments.map((trans,idx)=>{

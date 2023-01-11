@@ -84,27 +84,53 @@ const FriendList = () => {
             })
     }
 
+    const divStyle = {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px"
+    }
+
+    const buttonStyle = {
+        background: "gray",
+        margin: "30px"
+    }
+
+    const warningStyle = {
+        background: "#d76565",
+        textAlign: "center"
+    }
+
+    const notificationStyle = {
+        background: "#71de68e6",
+        textAlign: "center"
+    }
     return (
         <div>
             <Navbar/>
-            {notification && <p style={{background: "green"}}>{message}</p>}
-            {warning && <p style={{background: "red"}}>{message}</p>}
-            <form onSubmit={addFriend}>
-                <label htmlFor="">Add Friend</label>
-                <input name="friend" placeholder='Enter Email Address'/>
-                <button type='submit'>Add</button>
-            </form>
-            Friend List
-            {
-                friends.map((name,index)=>{
-                    return (
-                        <div key={index}>{name}</div>
-                      )
-                })
-            }
-            {
-                friends.length === 0 && <p>No Friends Added</p>
-            }
+            {notification && <p style={notificationStyle}>{message}</p>}
+            {warning && <p style={warningStyle}>{message}</p>}
+            <div style={divStyle}>
+                <form onSubmit={addFriend} className="form-group">
+                    <h3>Add Friend</h3>
+                    <input name="friend" placeholder='Enter Email Address' className='form-control'/>
+                    <div style={divStyle && {textAlign: "center"}}>
+                        <button type='submit' className='btn' style={buttonStyle}>Add</button>
+                    </div>
+                </form>
+            </div>
+            <div style={divStyle}>
+                <h3>Friend List</h3>
+                {
+                    friends.map((name,index)=>{
+                        return (
+                            <div key={index}>{name}</div>
+                        )
+                    })
+                }
+                {
+                    friends.length === 0 && <p>No Friends Added</p>
+                }
+            </div>
         </div>
     )
 }

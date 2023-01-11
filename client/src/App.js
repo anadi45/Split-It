@@ -1,23 +1,27 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
-import {useCookies} from "react-cookie";
-import { Navigate,Link } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import { Navigate, Link } from 'react-router-dom';
 
 function App() {
+
+  const cardStyle = { background: "gray", width: "10rem", height: "15rem", marginTop: "230px", marginLeft: "20px", marginRight: "20px", display: "flex", justifyContent: "center" };
+  const divStyle = { display: "flex", flexDirection: "row", justifyContent: "space-evenly" }
+  const linkStyle = { textDecoration: "none", color: "white" }
   const [cookies, setCookies] = useCookies(["token"]);
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       {cookies.token === undefined && <Navigate to="/entry" replace={true} />}
-      <ul style={{listStyleType: "none"}}>
-        <li><Link to="/friendList">Friend List</Link></li>
-        <li><Link to="/initiateTransaction">Initiate Transaction</Link></li>
-        <li><Link to="/allTransactions">All Transactions</Link></li>
-        <li><Link to="/payback">Pay Back</Link></li>
-        <li><Link to="/paymentReport">Payment Report</Link></li>
-        <li><Link to="/budget">Budget Report</Link></li>
-      </ul>
+      <div style={divStyle}>
+        <div className='card' style={cardStyle}><Link to="/friendList" style={linkStyle}>Friend List</Link></div>
+        <div className='card' style={cardStyle}><Link to="/payback" style={linkStyle}>Pay Back</Link></div>
+        <div className='card' style={cardStyle}><Link to="/initiateTransaction" style={linkStyle}>Initiate Transaction</Link></div>
+        <div className='card' style={cardStyle}><Link to="/allTransactions" style={linkStyle}>All Transactions</Link></div>
+        <div className='card' style={cardStyle}><Link to="/paymentReport" style={linkStyle}>Payment Report</Link></div>
+        <div className='card' style={cardStyle}><Link to="/budget" style={linkStyle}>Budget Report</Link></div>
+      </div>
     </div>
   );
 }
