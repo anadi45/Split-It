@@ -60,7 +60,7 @@ const All = () => {
                                 <div style={divStyle}><b>S No. </b>{idx+1}</div>
                                 <div style={divStyle}><b>Title - </b>{trans.title}</div>
                                 <div style={divStyle}><b>Total Amount - </b>{trans.totalAmount}</div>
-                                <div style={divStyle}><b>Total Recovered - </b>{trans.recoverd}</div>
+                                <div style={divStyle}><b>Total Recovered - </b>{trans.recovered}</div>
                                 <div style={divStyle}><b>Transaction Date - </b>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
                             </div>
                         )
