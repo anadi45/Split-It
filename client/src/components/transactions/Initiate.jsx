@@ -119,7 +119,7 @@ const Initiate = () => {
         <form onSubmit={initiateTransaction}>
           <div>
             <label>Title</label>
-            <input type="text" name='title' className='form-control'/>
+            <input type="text" name='title' className='form-control' autoComplete='off'/>
             <label>Amount</label>
             <input type="number" name="amount" className='form-control'/>
           </div>

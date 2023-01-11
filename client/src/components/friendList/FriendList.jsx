@@ -112,7 +112,7 @@ const FriendList = () => {
             <div style={divStyle}>
                 <form onSubmit={addFriend} className="form-group">
                     <h3>Add Friend</h3>
-                    <input name="friend" placeholder='Enter Email Address' className='form-control'/>
+                    <input name="friend" placeholder='Enter Email Address' className='form-control' autoComplete='off'/>
                     <div style={divStyle && {textAlign: "center"}}>
                         <button type='submit' className='btn' style={buttonStyle}>Add</button>
                     </div>
