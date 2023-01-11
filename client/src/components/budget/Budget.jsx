@@ -24,7 +24,7 @@ const Budget = () => {
 
       useEffect(()=>{
         axios
-            .get("http://localhost:5000/currentUser",
+            .get("/currentUser",
             config
                 )
             .then((res) => {
@@ -47,7 +47,7 @@ const Budget = () => {
     const handleUpdate = () => {
         
         axios
-            .patch(`http://localhost:5000/updateBudget`,
+            .patch(`/updateBudget`,
                 {
                 budget: parseInt(num)
                 },

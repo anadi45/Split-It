@@ -20,7 +20,7 @@ const Payback = () => {
 
     useEffect(()=>{
         axios
-            .get("http://localhost:5000/pendingPayments",
+            .get("/pendingPayments",
             config
                 )
             .then((res) => {
@@ -39,7 +39,7 @@ const Payback = () => {
     const handlePay = (amount,_id) => {
 
         axios
-            .post(`http://localhost:5000/payback/${_id}`,
+            .post(`/payback/${_id}`,
                 {
                 amount: parseInt(amount)
                 },

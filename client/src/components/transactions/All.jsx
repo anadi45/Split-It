@@ -20,7 +20,7 @@ const All = () => {
 
     useEffect(()=>{
         axios
-            .get("http://localhost:5000/allTransactions",
+            .get("/allTransactions",
             config
                 )
             .then((res) => {

@@ -22,8 +22,7 @@ const FriendList = () => {
 		};
 
         axios
-			.get(
-				"http://localhost:5000/allFriends",
+			.get("/allFriends",
 				config
                 )
             .then((res) => {
@@ -39,8 +38,7 @@ const FriendList = () => {
 			}
 		};
         axios
-        .post(
-            "http://localhost:5000/names",
+        .post("/names",
             {
                 emails: ids
             },
@@ -62,8 +60,7 @@ const FriendList = () => {
 			}
 		};
         axios
-			.post(
-				"http://localhost:5000/addFriend",
+			.post("/addFriend",
 				{
 					email: e.target[0].value
 				},

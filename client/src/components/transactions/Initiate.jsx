@@ -22,7 +22,7 @@ const Initiate = () => {
 
   useEffect(()=>{
     axios
-      .get("http://localhost:5000/allFriends",
+      .get("/allFriends",
         config
           )
       .then((res) => {
@@ -32,7 +32,7 @@ const Initiate = () => {
 
   useEffect(()=>{
     axios
-      .post("http://localhost:5000/names",
+      .post("/names",
           {
               emails: ids
           },
@@ -58,7 +58,7 @@ const Initiate = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/initiateTransaction",
+      .post("/initiateTransaction",
         {
           title: e.target[0].value,
           totalAmount: parseInt(e.target[1].value),

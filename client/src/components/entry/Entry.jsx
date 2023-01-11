@@ -25,7 +25,7 @@ const Entry = () => {
 		};
         axios
 			.post(
-				"http://localhost:5000/signup",
+				"/signup",
 				{
 					name: e.target[0].value,
                     email: e.target[1].value,

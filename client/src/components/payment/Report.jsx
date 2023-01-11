@@ -18,7 +18,7 @@ const Report = () => {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:5000/owe",
+        .get("/owe",
         config
             )
         .then((res) => {
