@@ -27,7 +27,7 @@ const payBack = async function (req,res) {
         });
         const paid = await newPayment.save();
 
-        const findTransaction = await Transaction.findById(transactionId);        
+        const findTransaction = await Transaction.findById(transactionId);               
         const findInitiator = await User.findById(findTransaction.initiator)
         
         const recovery = await Transaction.findByIdAndUpdate(transactionId, {$inc: {recovered: amount}});

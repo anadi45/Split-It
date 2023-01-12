@@ -37,11 +37,11 @@ const Payback = () => {
     },[]);
 
     const handlePay = (amount,_id) => {
-
+        
         axios
             .post(`https://ranjeetbaraik-split-it.onrender.com/payback/${_id}`,
                 {
-                amount: parseInt(amount)
+                    amount: parseInt(amount)
                 },
                 config
                 )
@@ -95,7 +95,7 @@ const Payback = () => {
                                     <div style={divStyle}><b>Amount - </b>{(trans.totalAmount-trans.share)/(trans.splitList).length}</div>
                                     <div style={divStyle}><b>Transaction Date - </b>{new Date(trans.date).toLocaleDateString('en-GB')}</div>
                                     <button style={buttonStyle} className='btn' onClick={()=>{
-                                        handlePay((trans.totalAmount-trans.share)/(trans.splitList).length,trans._id)
+                                        handlePay((trans.totalAmount-trans.share)/(trans.splitList).length,trans.transaction)
                                     }}>Pay Back</button>
                                 </div>
                             )

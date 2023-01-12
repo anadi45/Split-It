@@ -26,7 +26,8 @@ const initiateTransaction = async function (req, res) {
                 amount: totalAmount,
                 transaction: transactionId,
                 title: title,
-                spendingType: spendingType
+                spendingType: spendingType,
+                recovered: 0
             });
 
             const initiated = newPayment.save();
