@@ -39,7 +39,7 @@ const Payback = () => {
     const handlePay = (amount,_id) => {
         
         axios
-            .post(`https://ranjeetbaraik-split-it.onrender.com/payback/${_id}`,
+            .post(`https://ranjeetbaraik-split-it.onrender.com/payBack/${_id}`,
                 {
                     amount: parseInt(amount)
                 },
@@ -61,7 +61,6 @@ const Payback = () => {
                     }, 2000);
                     return () => clearTimeout(timer);
                 })
-        window.location.reload();
     }
 
     const warningStyle = {
